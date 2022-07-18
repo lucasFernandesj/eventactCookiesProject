@@ -24,7 +24,7 @@ function init(){
     }else{
       
       document.cookie = "EV=0"+datetime+exp
-      // displayMsg(0)
+      
     }
   }
 
@@ -32,38 +32,28 @@ function init(){
 
 
 function updateC(str){
-  // let visits = Number(str.split('=')[1])
   
-  // visits++
-  
-  // console.log(str)
   let firstSpace = str.indexOf(' ')
   let targetCookie = str.substring(0,firstSpace)
   visits = targetCookie.split('=')[1]
   visits++
   document.cookie = "EV="+visits+datetime+exp
-  // console.log(document.cookie)
   
   displayMsg()
 }
 
 function captureLastVisit(target){
-  // console.log('***captureLastVisit function*****')
-// console.log(target)
+
 let dateStr = target.substring(5,target.length-1)
 lastVisit = dateStr.trim()
 compareDifference(lastVisit,datetime)
-// console.log('lastVisit :'+lastVisit)
-// console.log("dateTime :"+datetime)
-
 
 updateC(target)
 }
 
 
 function displayMsg(){
-  // console.log("display msg function **********")
-  // console.log(document.cookie)
+
     document.querySelector('.container').innerText=`Welcome visitor, you have visited this site ${visits} times,\n last visit was ${lastVisit} \n${timeDifferenceStr} `
 }
 
@@ -86,11 +76,7 @@ function compareDifference(lastVisit,datetime){
   let datetimeDateArr = lastVisitDate.split('/').map(element=>Number(element))
   console.log(lastVisitDateArr)
   console.log(datetimeDateArr)
-  // console.log(lastVisitHourArr)
-  // console.log(datetimeHourArr)
-  
-  
-
+ 
   if(lastVisitDate === datetimeDate){
     visitedToday = true;
     // hoursAgo = parseInt(datetimeHourArr[0]) - parseInt(lastVisitHourArr[0])
